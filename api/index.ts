@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
+import serverless from 'serverless-http';
 import { Agent } from "@mastra/core/agent";
 import { openai } from "@ai-sdk/openai";
 
@@ -20,6 +21,8 @@ const financeAdvisor = new Agent({
 
 // Homepage route using Tailwind CSS with animations
 app.get('/', (req, res) => {
+  // Explicitly set the Content-Type to text/html
+  res.setHeader('Content-Type', 'text/html');
   res.send(`
     <!DOCTYPE html>
     <html lang="en">
@@ -28,14 +31,11 @@ app.get('/', (req, res) => {
         <title>Personal Finance Advisor</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <style>
-          /* Custom animations if desired */
           @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
           }
-          .fade-in {
-            animation: fadeIn 0.8s ease-out forwards;
-          }
+          .fade-in { animation: fadeIn 0.8s ease-out forwards; }
         </style>
       </head>
       <body class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
@@ -72,6 +72,8 @@ app.post('/ask', async (req, res) => {
     ]);
     const answer = response.text;
     
+    // Explicitly set the Content-Type to text/html
+    res.setHeader('Content-Type', 'text/html');
     res.send(`
       <!DOCTYPE html>
       <html lang="en">
@@ -84,9 +86,7 @@ app.post('/ask', async (req, res) => {
               from { opacity: 0; transform: translateY(20px); }
               to { opacity: 1; transform: translateY(0); }
             }
-            .fade-in {
-              animation: fadeIn 0.8s ease-out forwards;
-            }
+            .fade-in { animation: fadeIn 0.8s ease-out forwards; }
           </style>
         </head>
         <body class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4">
@@ -111,7 +111,5 @@ app.post('/ask', async (req, res) => {
   }
 });
 
-// Start the Express server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// Wrap the Express app as a serverless function for Vercel
+export default serverless(app);
