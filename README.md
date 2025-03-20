@@ -14,7 +14,6 @@ This project is a **personal finance advisor** web application built with **Type
 - **Backend:** Node.js, Express, TypeScript, [Mastra](https://mastra.ai/)
 - **Frontend:** Tailwind CSS (optionally React for SPA development)
 - **AI Model:** GPT-based (OpenAI, Gemini, etc.)
-- **Deployment:** Vercel (Frontend), Render or Heroku (Backend)
 
 ## Getting Started
 
@@ -53,23 +52,3 @@ This project is a **personal finance advisor** web application built with **Type
 - **Ask a Finance Question:** Navigate to the homepage and type in your question (e.g., “How can I save money on groceries?”).
 - **Receive AI Advice:** The Mastra agent processes your query and returns concise, actionable financial advice.
 - **Iterate & Explore:** Ask follow-up questions to refine your strategy.
-
-## Deployment
-
-### Deploying to Heroku (Example)
-1. **Procfile:** Create a file named `Procfile` in the root directory with the following content:
-   ```
-   web: npm run start
-   ```
-2. **Commit and Push to Heroku:**
-   ```bash
-   git add .
-   git commit -m "Prepare app for deployment"
-   heroku login
-   heroku create your-app-name
-   git push heroku main
-   ```
-3. **Set Environment Variables on Heroku:**
-   ```bash
-   heroku config:set OPENAI_API_KEY=sk-YourActualAPIKeyHere
-   ```
