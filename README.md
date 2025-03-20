@@ -1,37 +1,75 @@
-Personal Finance Advisor
-This repository hosts a modern, futuristic web application that serves as a personal finance advisor. Built with TypeScript and Express, it leverages the Mastra framework to power an AI agent using OpenAI's GPT models. The sleek user interface is styled with Tailwind CSS and enhanced with cool animations to deliver dynamic financial advice.
 
-Tech Stack
-TypeScript & Node.js: Application logic and server-side code.
-Express: Lightweight web server framework.
-Mastra Framework: To build and manage AI agents.
-OpenAI GPT: For generating dynamic personal finance advice.
-Tailwind CSS: For a modern, responsive, and animated UI.
-dotenv: For managing environment variables.
-Features
-Interactive Finance Advisor: Ask questions and receive personalized financial advice.
-Modern UI: Futuristic design with smooth animations using Tailwind CSS.
-AI-Powered Responses: Leverages GPT models via the Mastra framework.
-Easy Deployment: Ready to be deployed on platforms like Heroku or Vercel.
-Getting Started
-Prerequisites
-Node.js (v14+ recommended)
-npm or Yarn
-An OpenAI API Key (Sign up at OpenAI Platform)
+# Personal Finance Advisor Web App
 
-Installation
-Clone the repository:
-git clone https://github.com/your-username/latest-finance-assistant.git
-cd latest-finance-assistant
+## Overview
+This project is a **personal finance advisor** web application built with **TypeScript** and **Express**, leveraging the [Mastra](https://mastra.ai/) framework to power an AI agent. By utilizing GPT-based models (or a free alternative like Gemini), it offers personalized budgeting insights and expense advice. The user interface is styled with **Tailwind CSS** and features smooth animations for a modern, engaging experience.
 
-Install dependencies:
-npm install
+## Features
+- **AI-Driven Finance Advice:** Processes natural language queries to deliver tailored financial tips.
+- **Modern, Responsive UI:** Styled with Tailwind CSS and enhanced with custom animations.
+- **Full-Stack Architecture:** Backend powered by Node.js, Express, and TypeScript; easily extendable to include a React frontend.
+- **Easy Deployment:** Ready for hosting on platforms like Vercel, Render, or Heroku.
 
-Configure Environment Variables:
-Create a .env file in the project root and add your OpenAI API key:
-OPENAI_API_KEY=sk-YourActualAPIKeyHere
+## Tech Stack
+- **Backend:** Node.js, Express, TypeScript, [Mastra](https://mastra.ai/)
+- **Frontend:** Tailwind CSS (optionally React for SPA development)
+- **AI Model:** GPT-based (OpenAI, Gemini, etc.)
+- **Deployment:** Vercel (Frontend), Render or Heroku (Backend)
 
-Build and Run:
-For local development using tsx:
-npm run start
+## Getting Started
 
+### Prerequisites
+- **Node.js & npm:** Ensure Node.js (v14+) and npm are installed.
+- **Git:** For repository cloning.
+- **API Key (Optional):** An OpenAI or Gemini API key if integrating a specific LLM.
+
+### Installation
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/personal-finance-advisor.git
+   cd personal-finance-advisor
+   ```
+
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:**
+   Create a `.env` file in the project root:
+   ```env
+   OPENAI_API_KEY=sk-YourActualAPIKeyHere
+   ```
+   *(Replace the placeholder with your actual API key.)*
+
+4. **Run the Application:**
+   ```bash
+   npm run start
+   ```
+   Visit [http://localhost:3000](http://localhost:3000) to interact with the app.
+
+## Usage
+- **Ask a Finance Question:** Navigate to the homepage and type in your question (e.g., “How can I save money on groceries?”).
+- **Receive AI Advice:** The Mastra agent processes your query and returns concise, actionable financial advice.
+- **Iterate & Explore:** Ask follow-up questions to refine your strategy.
+
+## Deployment
+
+### Deploying to Heroku (Example)
+1. **Procfile:** Create a file named `Procfile` in the root directory with the following content:
+   ```
+   web: npm run start
+   ```
+2. **Commit and Push to Heroku:**
+   ```bash
+   git add .
+   git commit -m "Prepare app for deployment"
+   heroku login
+   heroku create your-app-name
+   git push heroku main
+   ```
+3. **Set Environment Variables on Heroku:**
+   ```bash
+   heroku config:set OPENAI_API_KEY=sk-YourActualAPIKeyHere
+   ```
